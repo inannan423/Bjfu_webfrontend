@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/headpic.jpg" type="image">
+    <title>Login</title>
+    <link rel="stylesheet" href="./Login/login.css">
+</head>
+
+<body>
+    <section>
+        <div class="box">
+            <div class="container" id="cbox">
+                <div class="logoa1">
+                    <img src="./Login/images/orange.png" alt="logoa1" id="piclogo">
+                </div>
+                <div class="login-box">
+                    <form action="">
+                        <img src="./Login/img/avatar.svg" alt="" class="avatar">
+                        <h2 style="color: orange;">PLEASE LOG IN</h2>
+                        <div class="input-group">
+                            <div class="icon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div>
+                                <h5>ID</h5>
+                                <input type="text" class="input">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="icon">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                            <div>
+                                <h5>PASSWORD</h5>
+                                <input type="password" class="input">
+                            </div>
+                        </div>
+                        <a href="#">注册/找回密码</a>
+                        <input type="submit" class="btn" value="登录" id="btn1">
+                        <a href="./index.html" style="text-decoration: none;">
+                            <input type="button" class="btn" value="返回" id="btn2" >
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    // 按钮波纹效果
+    var box = document.getElementById('cbox');
+    box.onmouseenter = function () {
+        this.style.borderRadius = '50px';
+        this.style.boxShadow = '0 45px 65px rgba(0,0,0,0.1)';
+    };
+    box.onmouseout = function () {
+        this.style.borderRadius = '50px';
+        this.style.boxShadow = '0 25px 45px rgba(0,0,0,0.1)';
+    }
+    // 悬浮换图
+    var a=document.getElementById('piclogo')
+    a.onmouseenter=function(){
+        a.src="./Login/images/orange2.png";
+    }
+    a.onmouseout=function(){
+        a.src="./Login/images/orange.png";
+    }
+
+    const inputs = document.querySelectorAll(".input");
+
+    function focusFunction(){
+        let parentNode = this.parentNode.parentNode;
+        parentNode.classList.add('focus');
+    }
+    function blurFunction(){
+        let parentNode = this.parentNode.parentNode;
+        if(this.value == ''){
+            parentNode.classList.remove('focus');
+        }
+    }
+
+    inputs.forEach(input=>{
+        input.addEventListener('focus',focusFunction);
+        input.addEventListener('blur',blurFunction);
+    });
+</script>
+
+</html>

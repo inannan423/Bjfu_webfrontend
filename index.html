@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange's Home</title>
+    <link rel="icon" href="./images/headpic.jpg" type="image">
+    <link rel="stylesheet" href="./css/index/index.css">
+    <link rel="stylesheet" href="./css/index/index-section.css">
+
+    <!-- 留言区 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- 留言区，引用外部js样式，参考：https://b23.tv/f5BIgU -->
+</head>
+
+<body>
+    <header>
+        <a href="#" id="logo"><img src="./images/logo.png" alt="logo" id="logoimg"></a>
+        <ul>
+            <li><a href="#" class='active'>Home</a></li>
+            <li><a href="./livingroom.html">LivingRoom</a></li>
+            <li><a href="./studyroom.html">StudyRoom</a></li>
+            <li><a href="#top" >Totop</a></li>
+        </ul>
+        <div id="mes">
+            <a href="./login.html" style="text-decoration: none;">
+                <img src="./images/login.png" alt="login" id="indexlogin">
+            </a>
+        </div>
+
+        <div class="hool">
+            <label for="toggle">
+                <input type="checkbox" id="toggle">
+                <span class="mil"></span>
+            </label>
+        </div>
+        <img src="./images/blackbtn.png" alt="blackbtn" id="blackbtn">
+    </header>
+
+    <section class="bans">
+        <img src="./images/stars.png" alt="" id="stars">
+        <img src="./images/pl.png" alt="" id="pl">
+        <div id="text">NEVER SETTLE.</div>
+        <img src="./images/earth.png" alt="" id="front">
+    </section>
+
+
+
+    <div class="sec">
+
+        <div class="bigfont">
+            <h1>
+                <span>I</span>M&nbsp;&nbsp;<span>WhoIam</span>
+            </h1>
+        </div>
+
+        <div id="birth">
+            <img src="./images/birthpl.png" alt="birthpl" id="bpl">
+            <h1 id="getname">
+                My Name is
+            </h1>
+            <h1 id="name">
+                XXXX
+            </h1>
+            <h2 id="engname">
+                XXXXX
+            </h2>
+            <img src="./images/rocket.png" alt="rocket" id="rkt">
+            <p id="info">
+                你猜这里写的是啥
+            </p>
+        </div>
+
+        <div class="bigboot">
+            <div class="slide">
+                <input type="radio" name="button" value="0" id="button1" checked hidden>
+                <label for="button1"></label>
+
+                <input type="radio" name="button" value="1" id="button2" hidden>
+                <label for="button2"></label>
+
+                <input type="radio" name="button" value="1" id="button3" hidden >
+                <label for="button3"></label>
+
+                <ul>
+                    <li>AGE 2</li>
+                    <li>AGE 11</li>
+                    <li>AGE 19</li>
+                </ul>
+            </div>
+
+            <div class="mybirday">
+                <h2>
+                    My
+                    <br>&nbsp Birthday
+                    <!-- &nbsp 空格 -->
+                </h2>
+
+                <h3>
+                    4.23
+                </h3>
+                <h4>April 23rd</h4>
+                <p>世界读书日<br>中国海军建立日</p>
+            </div>
+        </div>
+
+
+        <ul class="picbox">
+            <li class="noco">
+                <img src="./images/1.jpg" alt="" class="p1">
+                <div class="text">校园的银杏</div>
+            </li>
+            <li class="noco">
+                <img src="./images/2.jpg" alt="" class="p2">
+                <div class="text">高中挚友</div>
+            </li>
+            <li class="noco">
+                <img src="./images/3.jpg" alt="" class="p3">
+                <div class="text">小狗“初一”</div>
+            </li>
+            <li class="noco">
+                <img src="./images/4.jpg" alt="" class="p4">
+                <div class="text">怀柔的天空</div>
+            </li>
+            <li class="noco">
+                <img src="./images/5.jpg" alt="" class="p5">
+                <div class="text">深夜练习节目</div>
+            </li>
+        </ul>
+
+
+        <div class="Messageboard">
+            <img src="./images/cloud.png" alt="cloud" class="cloud">
+            <img src="./images/moon0.png" alt="moon0" class="neomoon">
+            <h2 class="messagetitle">Message Board · 留 言 板</h2>
+            <div class="maintask">
+                <input type="text" class="txtb" placeholder="请输入,“enter”键提交">
+                <!-- placeholder:隐形填入 -->
+                <div class="notcomp">
+                    <h3>已留言</h3>
+                </div>
+                <div class="noth"></div>
+                <!-- 分割线 -->
+                <div class="comp">
+                    <h3>精选留言</h3>
+                </div>
+            </div>
+            <img src="./images/plts.png" alt="plts" class="plts">
+        </div>
+
+        <!-- 参考代码源自https://b23.tv/f5BIgU-->
+        <script type="text/javascript">
+            $(".txtb").on("keyup", function (e) {
+                //13  means enter button
+                if (e.keyCode == 13 && $(".txtb").val() != "") {
+                    var task = $("<div class='task'></div>").text($(".txtb").val());
+                    var del = $("<i class='fas fa-trash-alt'></i>").click(function () {
+                        var p = $(this).parent();
+                        p.fadeOut(function () {
+                            p.remove();
+                        });
+                    });
+                    var check = $("<i class='fas fa-check'></i>").click(function () {
+                        var p = $(this).parent();
+                        p.fadeOut(function () {
+                            $(".comp").append(p);
+                            p.fadeIn();
+                        });
+                        $(this).remove();
+                    });
+                    task.append(del, check);
+                    $(".notcomp").append(task);
+                    //to clear the input
+                    $(".txtb").val("");
+                }
+            });
+        </script>
+
+        <div class="starline">
+            <img src="./images/starline.png" alt="starline">
+        </div>
+
+
+        <h2 class="neoh2">Self-Introduction 自 我 介 绍</h2>
+        <p class="neop">
+            
+            <br><br>
+        </p>
+        <div class="endwords">
+            <h2>______________________ N E V E R / S E T T L E ______________________</h2>
+        </div>
+        <div class="ending">
+            <div class="endinglogo"><img src="./images/endinglogo.png" alt="" class="endlo"></div>
+            <div class="mix">
+                <div class="a" onsubmit="return search()">
+                    <div>
+                        <input type="text" class="b" id="search_input" placeholder="Type to search">
+                        <div class="search-btn" id="c">
+                            <img src="./images/sh.png" style="width: 30px;" alt="pl" onclick="return search()">
+                        </div>
+                    </div>
+                </div>
+                <h2>Get in touch with me.</h2>
+                <div class="socialm">
+                    <a href="javascript:void(0)" class="btn btn_facebook"><img class="fa fa-facebook"
+                            src="./images/facebook.png"></img></a>
+                    <a href="javascript:void(0)" class="btn btn_qq"><img class="fa fa-qq"
+                            src="./images/QQ.png"></img></a>
+                    <a href="javascript:void(0)" class="btn btn_wx"><img class="fa fa-wx"
+                            src="./images/wechat.png"></img></a>
+                    <a href="javascript:void(0)" class="btn btn_tt"><img class="fa fa-tt"
+                            src="./images/twitter.png"></img></a>
+                </div>
+                <div class="ent">
+                    <img src="./images/ent.png" alt="" class="ent">
+                </div>
+            </div>
+        </div>
+        <div class="colorfont">
+            <span style="--i: 1">C</span>
+            <span style="--i: 2">H</span>
+            <span style="--i: 3">E</span>
+            <span style="--i: 4">N</span>
+            <span style="--i: 5">G</span>
+            <span style="--i: 6">Z</span>
+            <span style="--i: 7">I</span>
+            <span style="--i: 8">H</span>
+            <span style="--i: 9">A</span>
+            <span style="--i: 10">N</span>
+            <span style="--i: 14">,</span>
+            <span style="--i: 11">O</span>
+            <span style="--i: 12">R</span>
+            <span style="--i: 13">A</span>
+            <span style="--i: 14">N</span>
+            <span style="--i: 15">G</span>
+            <span style="--i: 16">E</span>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    let stars = document.getElementById('stars');
+    let pl = document.getElementById('pl');
+    let text = document.getElementById('text');
+    let front = document.getElementById('front');
+
+    //给窗口添加鼠标滚动事件
+    window.addEventListener('scroll', function () {
+        let value = window.scrollY
+        stars.style.left = value * 0.25 + 'px';
+        pl.style.top = value * 0.5 + 'px';
+        text.style.marginRight = value * 4 + 'px';
+        text.style.marginTop = value * 0.5 + 'px';
+    })
+
+    window.addEventListener("scroll", function () {
+        let header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 500);
+
+        let logo2 = document.getElementById("logoimg");
+        if (scrollY > 500) {
+            logo2.src = "./images/logo2.png";
+        }
+        else {
+            logo2.src = "./images/logo.png"
+        }
+    })
+
+    let clik = document.getElementById("toggle");
+    let bkfront = document.getElementById("front");
+    let bkbehind = document.getElementById("pl");
+    let bkcol = document.querySelector("body");
+    let heada = document.querySelector("header");
+    var flag = 1;
+    clik.onclick = function () {
+        flag++;
+        if (flag % 2 == 0) {
+            bkcol.style.background = "#DDDDDD";
+            bkfront.src = "./images/earthblk.png";
+            window.addEventListener("scroll", function () {
+                let header = document.querySelector("header");
+                header.classList.toggle("sticky", window.scrollY > 500);
+                if (window.scrollY > 500) {
+                    heada.style.background = "#DDDDDD";
+                }
+                else {
+                    heada.style.background = "none";
+                }
+            })
+        }
+        else {
+            bkfront.src = "./images/earth.png";
+            bkcol.style.background = "linear-gradient(rgba(11, 11, 63, 0.856),rgb(12, 12, 37))";
+            window.addEventListener("scroll", function () {
+                let header = document.querySelector("header");
+                header.classList.toggle("sticky", window.scrollY > 500);
+                if (window.scrollY > 500) {
+                    heada.style.background = "rgb(1, 6, 51)";
+                }
+                else {
+                    heada.style.background = "none";
+                }
+            })
+            bas.before.style.background = "linear-gradient(to top,skyblue,black)";
+        }
+    }
+
+    function search() {
+        if (document.getElementById("search_input").value != "") {
+            window.location.href = "https://www.baidu.com/s?wd=" + document.getElementById("search_input").value;
+            document.getElementById("search_input").value = "";
+        }
+        return false;
+    }
+</script>
+
+</html>

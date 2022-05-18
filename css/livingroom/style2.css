@@ -1,0 +1,249 @@
+/* logo、导航、换肤按钮、视差图 */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face { font-family: ERA; src: url("./cssimages/ERASBD.TTF"); }
+@font-face {font-family: FZ;src: url("./cssimages/FZ.ttf");}
+
+body{
+    background: linear-gradient(black,rgb(37, 32, 32));
+    min-height: 70vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: ease-in-out;
+    perspective: 900px;
+}
+header{
+    height: 130px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* padding: 30px 100px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition:0.6s;
+    padding:10px 60px;
+    z-index: 9999;
+}
+
+#logoimg{
+    height: 70px;
+}
+
+header #logo{
+    position: relative;
+    top: -20px;
+    left: -50px;
+    color: #fff;
+    height:50px ;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 70px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition:0.6s;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    left: -80px;
+    /* justify-content: center;
+    align-items: center; */
+}
+header ul li{
+    position: relative;
+    list-style: none;
+    margin-left: 20px;
+}
+header ul li a{
+    font-family: ERA;
+    font-size: 30px;
+    position: relative;
+    margin: 0 15px;
+    text-decoration:none;
+    color: #fff;
+    -webkit-text-stroke: 0.5px gold;
+    border-radius: 20px;
+    transition: 0.6s;
+}
+header ul li a:hover
+{
+    padding:15px 20px;
+    border-radius: 50px;
+    background-color: rgb(245, 185, 74);
+    backdrop-filter: blur(50px);
+}
+
+
+#indexlogin{
+  cursor: pointer;
+  position: relative;
+  right: 70px;
+  height: 80px;
+  border-radius: 30px;
+}
+
+
+#blackbtn{
+  position: relative;
+  height: 60px;
+  top: 3px;
+  right: 68px;
+}
+
+header.sticky{
+    position: sticky;
+    height: 120px;
+    color: black;
+    padding:5px 100px;
+    background-color: black;
+    backdrop-filter: blur(50px);
+    /* 透明过渡 */
+}
+header.sticky ul li a{
+    color:#000;
+}
+header.sticky p{
+    color: black;
+}
+
+.bans{
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  transition: linear 0.7s;
+}
+
+.bans::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(to top,rgb(1, 6, 51),rgba(0,0,0,0));
+    z-index: 1000;
+}
+
+.bans img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.bans img#front{
+    z-index: 15;
+}
+.bans #text{
+    position: absolute;
+    font-family: ERA;
+    bottom: 400px;
+    color: gold;
+    -webkit-text-stroke: 4px #32003C;
+    font-size: 7.5vw;
+    text-shadow: 0px 10px 20px grey;
+    font-style: italic;
+    white-space: nowrap;
+    z-index: 10;
+    transform: translateY(100px);
+    right: -900px;
+}
+
+
+
+/* 皮肤切换按钮 */
+:root {
+  /* 伪类 */
+    --button-width: 52px;
+    --button-height: 35.5px;
+    --toggle-diameter: 25.5px;
+    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+    --toggle-shadow-offset: 1px;
+    --toggle-wider: 34.3px;
+    --color-1: #96dcee;
+    --color-2: #39393D;
+    --color-3: #6b7abb;;
+  }
+
+  .mil {
+    cursor: pointer;
+      /* 鼠标变小手 */
+    display: inline-block;
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: var(--color-1);
+    border-radius: 30px; 
+    position: relative;
+    top: 4.6px;
+    right: 70px;
+    transition: .3s all ease-in-out;
+    border: #5d6baa solid 3px;
+    box-shadow: 0 5px 5px 1px rgba(68,26,9,0.2);
+  }
+  
+  .mil::after {
+    content: '';
+    display: inline-block;
+    width: var(--toggle-diameter);
+    height: var(--toggle-diameter);
+    border:#e8e8ea solid 3px;
+    border-color: #e8e8ea;
+    background-color: rgb(228, 228, 73);
+    /* border-radius: calc(var(--toggle-diameter) / 2); */
+    border-radius: 50%;
+    position: absolute;
+    /* top: var(--button-toggle-offset); */
+    top:-1px;
+    left:-6.3px;
+    transform: translateX(var(--button-toggle-offset));
+    box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, .10);
+    transition: .3s all ease-in-out;
+  }
+  
+  input[type="checkbox"]:checked + span {
+    background-color: var(--color-3);
+  }
+  
+  input[type="checkbox"]:checked + span::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+    box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, .10);
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  input[type="checkbox"]:active + span::after {
+    width: var(--toggle-wider);
+  }
+  
+  input[type="checkbox"]:checked:active + span::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+  }
+  
+  @media(prefers-color-scheme: dark) {
+    body {
+      background-color: #1C1C1E;
+    }
+    
+    span {
+      background-color: var(--color-2);
+    }
+  }
+
+  
